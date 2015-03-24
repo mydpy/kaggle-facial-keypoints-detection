@@ -27,7 +27,7 @@ import math
 
 
 training = {}
-test = {}
+testing = {}
 lookup = {}
 
 train = {}
@@ -60,7 +60,7 @@ with open('data/test/test.csv', 'rb') as test_csv:
     reader = csv.reader(test_csv)
     key = 0    
     for row in reader:
-        test[key] = row
+        testing[key] = row
         key = key + 1
         
         
