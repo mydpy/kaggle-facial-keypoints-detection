@@ -25,14 +25,6 @@ import numpy as np
 import PredictKeypointPositions as pkp
 reload(pkp)
 
-
-training = {}
-testing = {}
-lookup = {}
-
-train = {}
-test = {}
-
 training_path = 'data/training/training.csv'
 test_path = 'data/test/test.csv'
 lookup_table_path = 'data/IDLookupTable.csv'
