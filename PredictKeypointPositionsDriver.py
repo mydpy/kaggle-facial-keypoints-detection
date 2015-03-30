@@ -21,9 +21,9 @@ imgplot = plt.imshow(image2, cmap = cm.Greys_r)
 """
 
 
-import csv
 import numpy as np
-import math
+import PredictKeypointPositions as pkp
+reload(pkp)
 
 
 training = {}
@@ -32,46 +32,12 @@ lookup = {}
 
 train = {}
 test = {}
-  
 
+training_path = 'data/training/training.csv'
+test_path = 'data/test/test.csv'
+lookup_table_path = 'data/IDLookupTable.csv'
 
-
-with open('data/training/training.csv', 'rb') as train_csv:
-    reader = csv.reader(train_csv)
-    key = 0    
-    for row in reader:
-        training[key] = row
-        key = key + 1
-
-
-total_size   = len(training)      
-train_size = int(math.floor(total_size*.8))
-test_size = total_size - train_size
-
-
-for i in range(train_size):
-    train[i] = training[i]
-    
-for i in range(test_size):
-    test[i] = training[train_size + i]
-
-    
-with open('data/test/test.csv', 'rb') as test_csv:
-    reader = csv.reader(test_csv)
-    key = 0    
-    for row in reader:
-        testing[key] = row
-        key = key + 1
-        
-        
-with open('data/IDLookupTable.csv', 'rb') as ids_csv:
-    reader = csv.reader(ids_csv)
-    key = 0    
-    for row in reader:
-        lookup[key] = row
-        key = key + 1
-        
-
+a = pkp.PredictKeypointPosition(training_path)
 
         
 
